@@ -1,0 +1,5 @@
+body {
+  height: 100vh;
+  background: linear-gradient(to bottom right, #aef5d3, #016f45);
+  font-family: "Roboto", sans-serif;
+}

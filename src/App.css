@@ -28,6 +28,31 @@
   color: #61dafb;
 }
 
+.common-font {
+  font-family: "Montserrat", sans-serif;
+}
+
+.common-font-bold {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+}
+
+.common-font-light {
+  font-family: "Montserrat", sans-serif;
+  font-weight: lighter;
+}
+
+.common-font-italic {
+  font-family: "Montserrat", sans-serif;
+  font-style: italic;
+}
+
+.common-font-bold-italic {
+  font-family: "Montserrat", sans-serif;
+  font-weight: bold;
+  font-style: italic;
+}
+
 @keyframes App-logo-spin {
   from {
     transform: rotate(0deg);
