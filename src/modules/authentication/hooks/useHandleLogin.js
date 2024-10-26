@@ -11,7 +11,7 @@ const useHandleLoginHook = () => {
   const handleLogin = useCallback(
     () => async () => {
       if (username.trim() === "" || password.trim() === "") {
-        setError("Please enter both username and password.");
+        setError("Please enter username and password.");
         return;
       }
       setLoading(true);
@@ -28,11 +28,16 @@ const useHandleLoginHook = () => {
         });
         const response = await data.json();
         if (response.error) {
-          setError(response.error);
+          if (response.error.statusCode === 401) {
+            setError("Invalid email or password.");
+            setLoading(false);
+            return;
+          }
+          setError("Something went wrong. Please try again later.");
           setLoading(false);
           return;
         }
-        setError("");
+        setError("Something went wrong. Please try again later.");
         setLoading(false);
         console.log(response);
         Cookie.set("authToken", response.token);
@@ -46,6 +51,11 @@ const useHandleLoginHook = () => {
     },
     [username, password, navigate]
   );
+
+  function goToSignUp() {
+    navigate("/auth/register");
+  }
+
   return {
     username,
     setUsername,
@@ -54,6 +64,7 @@ const useHandleLoginHook = () => {
     handleLogin,
     loading,
     error,
+    goToSignUp,
   };
 };
 

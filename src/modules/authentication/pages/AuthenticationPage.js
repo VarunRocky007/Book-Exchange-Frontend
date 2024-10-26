@@ -1,4 +1,5 @@
 import LoginForm from "../components/LoginForm";
+import RegistrationForm from "../components/RegistrationForm";
 import "./AuthenticationPage.css";
 
 const AuthenticationPage = ({ type }) => {
@@ -6,7 +7,7 @@ const AuthenticationPage = ({ type }) => {
     return <LoginForm />;
   }
   if (type === "register") {
-    // return <RegisterPage />;
+    return <RegistrationForm />;
   }
   if (type === "forgot-password") {
     // return <ForgotPasswordPage />;

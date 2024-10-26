@@ -1,12 +1,21 @@
 import React from "react";
 import TextInput from "../../../components/input_text/TextInput";
+import TextError from "../../../components/error_text/TextError";
 import useHandleLoginHook from "../hooks/useHandleLogin";
 import "./LoginForm.css";
 import { ThreeDot } from "react-loading-indicators";
 
 const LoginForm = () => {
-  const { username, setUsername, password, setPassword, handleLogin, loading } =
-    useHandleLoginHook();
+  const {
+    username,
+    setUsername,
+    password,
+    setPassword,
+    handleLogin,
+    loading,
+    error,
+    goToSignUp,
+  } = useHandleLoginHook();
 
   if (loading) {
     return (
@@ -37,7 +46,7 @@ const LoginForm = () => {
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
-
+      {error !== "" && <TextError errorText={error} />}
       <button type="submit" className="submit" onClick={handleLogin()}>
         <div className="common-font-bold">Login</div>
       </button>
@@ -45,7 +54,9 @@ const LoginForm = () => {
       <div className="sign-up">
         <div className="common-font">
           Don't Have an Account?{" "}
-          <button className="common-font-bold login-extra">Sign Up</button>
+          <button className="common-font-bold login-extra" onClick={goToSignUp}>
+            Sign Up
+          </button>
         </div>
       </div>
       <div className="forgot-password">
