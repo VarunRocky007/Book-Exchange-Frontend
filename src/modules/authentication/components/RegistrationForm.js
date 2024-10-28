@@ -1,10 +1,13 @@
 import useHandleRegistration from "../hooks/useHandleRegistration";
+import Snackbar from "@mui/material/Snackbar";
 import TextInput from "../../../components/input_text/TextInput";
 import TextError from "../../../components/error_text/TextError";
 import { ThreeDot } from "react-loading-indicators";
 import "./RegistrationForm.css";
+const { useNavigate } = require("react-router-dom");
 
 const RegistrationForm = () => {
+  const navigate = useNavigate();
   const {
     name,
     setName,
@@ -21,7 +24,12 @@ const RegistrationForm = () => {
     passwordError,
     confirmPasswordError,
     goToLogin,
+    openSnackBar,
   } = useHandleRegistration();
+
+  function onCloseSnackBar() {
+    navigate("/auth/login");
+  }
 
   if (loading) {
     return (
@@ -33,6 +41,12 @@ const RegistrationForm = () => {
 
   return (
     <div className="registration-container">
+      <Snackbar
+        open={openSnackBar}
+        autoHideDuration={2000}
+        onClose={onCloseSnackBar}
+        message="Registration successful. Please login to continue."
+      />
       <div className="registration-header">
         <div className="registration-title">
           Welcome to Book Exchange Platform

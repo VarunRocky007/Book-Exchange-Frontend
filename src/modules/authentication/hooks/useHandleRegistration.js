@@ -1,5 +1,6 @@
 const { useState, useCallback } = require("react");
 const { useNavigate } = require("react-router-dom");
+
 const useHandleRegistration = () => {
   const navigate = useNavigate();
   const [name, setName] = useState("");
@@ -11,6 +12,7 @@ const useHandleRegistration = () => {
   const [passwordError, setPasswordError] = useState("");
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [nameError, setNameError] = useState("");
+  const [openSnackBar, setOpenSnackBar] = useState(false);
 
   const handleRegistration = useCallback(async () => {
     setNameError("");
@@ -54,8 +56,7 @@ const useHandleRegistration = () => {
       });
       const response = await data.json();
       if (response.status === "success") {
-        alert("Registration successful. Please login to continue.");
-        navigate("/auth/login");
+        setOpenSnackBar(true);
         setLoading(false);
         return;
       }
@@ -85,7 +86,7 @@ const useHandleRegistration = () => {
       setLoading(false);
       return;
     }
-  }, [name, email, password, confirmPassword, navigate]);
+  }, [name, email, password, confirmPassword]);
 
   function goToLogin() {
     navigate("/auth/login");
@@ -107,6 +108,7 @@ const useHandleRegistration = () => {
     confirmPasswordError,
     nameError,
     goToLogin,
+    openSnackBar,
   };
 };
 
