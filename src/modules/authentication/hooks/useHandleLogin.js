@@ -56,6 +56,10 @@ const useHandleLoginHook = () => {
     navigate("/auth/register");
   }
 
+  function goToForgotPassword() {
+    navigate("/auth/forgot-password");
+  }
+
   return {
     username,
     setUsername,
@@ -65,6 +69,7 @@ const useHandleLoginHook = () => {
     loading,
     error,
     goToSignUp,
+    goToForgotPassword,
   };
 };
 

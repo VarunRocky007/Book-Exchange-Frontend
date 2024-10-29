@@ -15,6 +15,7 @@ const LoginForm = () => {
     loading,
     error,
     goToSignUp,
+    goToForgotPassword,
   } = useHandleLoginHook();
 
   if (loading) {
@@ -60,7 +61,10 @@ const LoginForm = () => {
         </div>
       </div>
       <div className="forgot-password">
-        <button className="common-font-bold login-extra">
+        <button
+          className="common-font-bold login-extra"
+          onClick={goToForgotPassword}
+        >
           Forgot Password
         </button>
       </div>
