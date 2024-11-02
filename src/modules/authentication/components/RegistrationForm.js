@@ -4,7 +4,9 @@ import TextInput from "../../../components/input_text/TextInput";
 import TextError from "../../../components/error_text/TextError";
 import { ThreeDot } from "react-loading-indicators";
 import "./RegistrationForm.css";
+import Checkbox from '@mui/material/Checkbox';
 const { useNavigate } = require("react-router-dom");
+
 
 const RegistrationForm = () => {
   const navigate = useNavigate();
@@ -25,7 +27,13 @@ const RegistrationForm = () => {
     confirmPasswordError,
     goToLogin,
     openSnackBar,
+    showPassword,
+    setShowPassword
   } = useHandleRegistration();
+
+  const handleChange = (event) => {
+    setShowPassword(event.target.checked);
+  };
 
   function onCloseSnackBar() {
     navigate("/auth/login");
@@ -75,7 +83,7 @@ const RegistrationForm = () => {
         {emailError !== "" && <TextError errorText={emailError} />}
 
         <TextInput
-          type="password"
+          type={showPassword ? "text" : "password"}
           value={password}
           label="Password"
           onChange={(e) => setPassword(e.target.value)}
@@ -85,7 +93,7 @@ const RegistrationForm = () => {
         {passwordError !== "" && <TextError errorText={passwordError} />}
 
         <TextInput
-          type="password"
+          type={showPassword ? "text" : "password"}
           value={confirmPassword}
           label="Confirm Password"
           onChange={(e) => setConfirmPassword(e.target.value)}
@@ -95,6 +103,14 @@ const RegistrationForm = () => {
         {confirmPasswordError !== "" && (
           <TextError errorText={confirmPasswordError} />
         )}
+      </div>
+
+      <div className="showPassword">
+        <Checkbox
+          checked={showPassword}
+          onChange={handleChange}
+          inputProps={{ 'aria-label': 'controlled' }}
+        />Show Password
       </div>
 
       <button type="submit" className="submit" onClick={handleRegistration}>

@@ -4,6 +4,7 @@ import Snackbar from "@mui/material/Snackbar";
 import useHandleForgotPassword from "../hooks/useHandleForgotPassword";
 import TextInput from "../../../components/input_text/TextInput";
 import TextError from "../../../components/error_text/TextError";
+import Checkbox from '@mui/material/Checkbox';
 
 const ForgotPasswordForm = () => {
   const {
@@ -28,7 +29,13 @@ const ForgotPasswordForm = () => {
     otpError,
     passwordError,
     confirmPasswordError,
+    showPassword,
+    setShowPassword
   } = useHandleForgotPassword();
+
+  const handleChange = (event) => {
+    setShowPassword(event.target.checked);
+  };
 
   if (loading) {
     return (
@@ -71,7 +78,7 @@ const ForgotPasswordForm = () => {
         ) : passwordView ? (
           <div className="forgot-password-form">
             <TextInput
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={password}
               label="Password"
               onChange={(e) => setPassword(e.target.value)}
@@ -79,7 +86,7 @@ const ForgotPasswordForm = () => {
             {passwordError !== "" && <TextError errorText={passwordError} />}
 
             <TextInput
-              type="password"
+              type={showPassword ? "text" : "password"}
               value={confirmPassword}
               label="Confirm Password"
               onChange={(e) => setConfirmPassword(e.target.value)}
@@ -90,6 +97,13 @@ const ForgotPasswordForm = () => {
             {passwordApiError !== "" && (
               <TextError errorText={passwordApiError} />
             )}
+            <div className="showPassword">
+              <Checkbox
+                checked={showPassword}
+                onChange={handleChange}
+                inputProps={{ 'aria-label': 'controlled' }}
+              />Show Password
+            </div>
             <button
               type="submit"
               className="submit"

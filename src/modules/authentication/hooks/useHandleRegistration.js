@@ -13,6 +13,7 @@ const useHandleRegistration = () => {
   const [confirmPasswordError, setConfirmPasswordError] = useState("");
   const [nameError, setNameError] = useState("");
   const [openSnackBar, setOpenSnackBar] = useState(false);
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleRegistration = useCallback(async () => {
     setNameError("");
@@ -109,6 +110,8 @@ const useHandleRegistration = () => {
     nameError,
     goToLogin,
     openSnackBar,
+    showPassword,
+    setShowPassword,
   };
 };
 

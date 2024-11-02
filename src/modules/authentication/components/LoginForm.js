@@ -4,6 +4,7 @@ import TextError from "../../../components/error_text/TextError";
 import useHandleLoginHook from "../hooks/useHandleLogin";
 import "./LoginForm.css";
 import { ThreeDot } from "react-loading-indicators";
+import Checkbox from '@mui/material/Checkbox';
 
 const LoginForm = () => {
   const {
@@ -16,7 +17,13 @@ const LoginForm = () => {
     error,
     goToSignUp,
     goToForgotPassword,
+    showPassword,
+    setShowPassword,
   } = useHandleLoginHook();
+
+  const handleChange = (event) => {
+    setShowPassword(event.target.checked);
+  };
 
   if (loading) {
     return (
@@ -41,16 +48,24 @@ const LoginForm = () => {
         />
 
         <TextInput
-          type="password"
+          type={showPassword ? "text" : "password"}
           value={password}
           label="Password"
           onChange={(e) => setPassword(e.target.value)}
         />
       </div>
       {error !== "" && <TextError errorText={error} />}
+      <div className="showPassword">
+        <Checkbox
+          checked={showPassword}
+          onChange={handleChange}
+          inputProps={{ 'aria-label': 'controlled' }}
+        />Show Password
+      </div>
       <button type="submit" className="submit" onClick={handleLogin()}>
         <div className="common-font-bold">Login</div>
       </button>
+
 
       <div className="sign-up">
         <div className="common-font">

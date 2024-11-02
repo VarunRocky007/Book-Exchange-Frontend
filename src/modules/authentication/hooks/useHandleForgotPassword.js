@@ -18,6 +18,7 @@ const useHandleForgotPassword = () => {
   const [passwordView, setPasswordView] = useState(false);
   const [otpId, setOtpId] = useState("");
   const [verificationId, setVerificationId] = useState("");
+  const [showPassword, setShowPassword] = useState(false);
 
   const handleForgotPassword = useCallback(
     () => async () => {
@@ -179,6 +180,8 @@ const useHandleForgotPassword = () => {
     passwordError,
     confirmPasswordError,
     passwordApiError,
+    showPassword,
+    setShowPassword,
   };
 };
 
