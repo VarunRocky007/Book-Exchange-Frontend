@@ -30,6 +30,7 @@ const ProtectedRoute = () => {
       if (res.data.user != null) {
         setLoading(false);
         setIsAuthenticated(true);
+        Cookie.set("userId", res.data.user._id);
       } else {
         setLoading(false);
         setIsAuthenticated(false);
