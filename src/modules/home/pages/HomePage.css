@@ -2,4 +2,71 @@ body {
     height: 100vh;
     background: white;
     font-family: "Roboto", sans-serif;
+}
+
+.container {
+    padding: 20px;
+  }
+  
+  .card-container {
+    display: flex;
+    flex-wrap: wrap; /* Enables wrapping of cards */
+    gap: 20px; /* Adds space between cards */
+    justify-content: center;
+  }
+  
+  .card {
+    flex: 1 1 300px; /* Each card takes up at least 300px, but will shrink if needed */
+    max-width: 300px;
+    padding: 20px;
+    border: none;
+    border-radius: 8px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
+    background-color: #ffffff;
+    text-align: left;
+    transition: transform 0.2s;
+  }
+  
+  .card:hover {
+    transform: scale(1.03);
+  }
+  
+  .card-title {
+    font-size: 1.5em;
+    margin: 0 0 10px;
+  }
+  
+  .card-author,
+  .card-availability,
+  .card-genre {
+    margin: 5px 0;
+    font-size: 1em;
+    color: #555;
+  }
+
+  .pagination {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    margin-top: 20px;
+  }
+  
+  .pagination button {
+    padding: 10px 15px;
+    margin: 0 5px;
+    border: none;
+    border-radius: 5px;
+    background-color: #007bff;
+    color: white;
+    cursor: pointer;
+  }
+  
+  .pagination button:disabled {
+    background-color: #ccc;
+    cursor: not-allowed;
+  }
+  
+  .pagination span {
+    margin: 0 15px;
+    font-size: 1em;
   }
