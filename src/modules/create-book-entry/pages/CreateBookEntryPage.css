@@ -14,6 +14,12 @@
     color: #333;
 }
 
+.create-book-entry-page {
+    height: 100vh;
+    background: white;
+    font-family: "Roboto", sans-serif;
+}
+
 label {
     display: flex;
     flex-direction: column;

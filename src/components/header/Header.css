@@ -7,18 +7,26 @@ header {
     background-color: #003419;
     color: #fff;
     flex-wrap: wrap;
-    /* Allows wrapping on smaller screens */
 }
 
 .brand {
     font-size: 1.5em;
     font-weight: bold;
+    cursor: pointer;
+    color: #fff;
 }
 
+/* Right-section container for aligning items to the right */
+.right-section {
+    display: flex;
+    align-items: center;
+    gap: 15px; /* Adds spacing between items */
+}
+
+/* Search Form Styles */
 .searchForm {
     display: flex;
     align-items: center;
-    justify-content: center;
     position: relative;
     max-width: 600px;
     width: 100%;
@@ -43,7 +51,6 @@ header {
     box-shadow: 0 4px 12px rgba(0, 123, 255, 0.2);
 }
 
-/* Default button style */
 .searchButton {
     position: absolute;
     left: 10px;
@@ -59,30 +66,16 @@ header {
     color: #007bff;
 }
 
-
-.profile {
-    display: flex;
-    align-items: center;
-}
-
-.addBook {
-    display: flex;
-    padding-right: 15px;
-    align-items: center;
-}
-
-.profileLink {
+/* Link Styles */
+.headerLink {
     color: #fff;
     text-decoration: none;
     font-size: 1em;
-    padding-left: 10px;
+    transition: color 0.3s ease;
 }
 
-.addBookLink {
-    color: #fff;
-    text-decoration: none;
-    font-size: 1em;
-    padding-left: 10px;
+.headerLink:hover {
+    color: #ddd;
 }
 
 /* Responsive Styles */
@@ -101,7 +94,7 @@ header {
         font-size: 1.2em;
     }
 
-    .profileLink {
+    .headerLink {
         font-size: 0.9em;
     }
 }
@@ -109,32 +102,33 @@ header {
 @media (max-width: 480px) {
     header {
         flex-direction: column;
-        /* Stack elements vertically */
         align-items: flex-start;
-        /* Align items to the left */
+    }
+
+    .right-section {
+        width: 100%;
+        justify-content: flex-start;
+        margin-top: 10px;
     }
 
     .searchForm {
         max-width: 100%;
+        margin: 10px 0;
     }
 
     .searchInput {
-        padding: 10px 35px 10px 10px;
+        padding: 10px 10px 10px 35px;
         border-radius: 5px;
-        /* Square input on small screens */
     }
 
     .searchButton {
-        position: absolute;
         right: 10px;
-        /* Move to the right on small screens */
         left: auto;
         font-size: 1em;
     }
 
-    .profileLink {
+    .headerLink {
         font-size: 1em;
-        padding-left: 0;
         margin-top: 10px;
     }
 }
