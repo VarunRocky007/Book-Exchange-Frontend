@@ -3,8 +3,10 @@ import {useEffect, useState} from "react";
 import Header from "../../../components/header/Header";
 import TextError from "../../../components/error_text/TextError";
 import Cookie from "js-cookie";
+const {useNavigate} = require("react-router-dom");
 
 const ProfilePage = () => {
+    const navigate = useNavigate();
     const [items, setItems] = useState([]);
     const [bookLoading, setBookLoading] = useState(true);
     const [profileLoading, setProfileLoading] = useState(true);
@@ -17,6 +19,19 @@ const ProfilePage = () => {
         name: "",
         email: "",
     });
+    const handleLogout = () => {
+        fetch("http://localhost:3000/api/v1/users/logout", {
+            method: "POST",
+            headers: {
+                'Authorization': 'Bearer ' + token
+            }
+        }).then(() => {
+            Cookie.remove("authToken");
+            Cookie.remove("userId");
+            navigate("/auth/login");
+            }
+        );
+    }
     const fetchProfile = async () => {
         setProfileLoading(true);
         try {
@@ -101,7 +116,7 @@ const ProfilePage = () => {
                         Change Password
                     </button>
                     <br/>
-                    <button>
+                    <button onClick={handleLogout}>
                         Logout
                     </button>
                 </div>)}
