@@ -124,6 +124,7 @@ const ProfilePage = () => {
             <h1>Books Listed By You</h1>
             {bookLoading && (<span>...Loading</span>)}
             {error !== "" && (<span>{error}</span>)}
+            {items.length === 0 && !bookLoading && (<span>No books listed by you.</span>)}
             <div className="container">
                 <div className="card-container">
                     {items.map((item) => (

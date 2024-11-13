@@ -42,6 +42,7 @@ const HomePage = () => {
             <Header/>
             {loading && (<span>...Loading</span>)}
             {error !== "" && (<span>{error}</span>)}
+            {items.length === 0 && !loading && (<span>No items found.</span>)}
             <div className="container">
                 <div className="card-container">
                     {items.map((item) => (
