@@ -37,7 +37,7 @@ const HomePage = () => {
     fetchData();
   }, []);
   return (
-    <div>
+    <div className="homePage">
       <Header />
       {loading && (<span>...Loading</span>)}
       {error !== "" && (<span>{error}</span>)}
