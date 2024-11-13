@@ -2,6 +2,7 @@ import AuthenticationPage from "../modules/authentication/pages/AuthenticationPa
 import HomePage from "../modules/home/pages/HomePage";
 import { BrowserRouter, Routes, Route } from "react-router-dom";
 import ProtectedRoute from "./ProtectedRoute";
+import CreateBookEntryPage from "../modules/create-book-entry/pages/CreateBookEntryPage";
 
 const AppRouter = () => {
   return (
@@ -9,6 +10,7 @@ const AppRouter = () => {
       <Routes>
         <Route element={<ProtectedRoute />}>
           <Route path="/" element={<HomePage />} />
+          <Route path="/create-book-entry" element={<CreateBookEntryPage />} />
         </Route>
         <Route
           path="/auth/login"

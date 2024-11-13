@@ -65,7 +65,20 @@ header {
     align-items: center;
 }
 
+.addBook {
+    display: flex;
+    padding-right: 15px;
+    align-items: center;
+}
+
 .profileLink {
+    color: #fff;
+    text-decoration: none;
+    font-size: 1em;
+    padding-left: 10px;
+}
+
+.addBookLink {
     color: #fff;
     text-decoration: none;
     font-size: 1em;
