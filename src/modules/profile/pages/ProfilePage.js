@@ -19,6 +19,9 @@ const ProfilePage = () => {
         name: "",
         email: "",
     });
+    const navigateToChangePassword = () => {
+        navigate("/change-password");
+    }
     const handleLogout = () => {
         fetch("http://localhost:3000/api/v1/users/logout", {
             method: "POST",
@@ -112,7 +115,7 @@ const ProfilePage = () => {
                     <h1>Profile</h1>
                     <h2>Name: {profile.name}</h2>
                     <p>Email: {profile.email}</p>
-                    <button>
+                    <button onClick={navigateToChangePassword}>
                         Change Password
                     </button>
                     <br/>
