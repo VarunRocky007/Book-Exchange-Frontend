@@ -13,6 +13,34 @@
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
 }
 
+.edit-button {
+    background-color: #007bff;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.delete-button {
+    background-color: #dc3545;
+    color: white;
+    border: none;
+    padding: 8px 12px;
+    border-radius: 5px;
+    cursor: pointer;
+    font-size: 0.9em;
+}
+
+.delete-button:hover {
+    background-color: #c82333;
+}
+
+.edit-button:hover {
+    background-color: #0056b3;
+}
+
 .book-title {
     font-size: 2em;
     margin-bottom: 15px;
