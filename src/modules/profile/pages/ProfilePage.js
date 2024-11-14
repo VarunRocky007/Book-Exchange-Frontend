@@ -131,7 +131,7 @@ const ProfilePage = () => {
             <div className="container">
                 <div className="card-container">
                     {items.map((item) => (
-                        <div key={item.id} className="card">
+                        <div key={item.id} className="card" onClick={(e) => {navigate(`/book/${item._id}`)}}>
                             <h2 className="card-title">{item.title}</h2>
                             <p className="card-author">Author: {item.author}</p>
                             <p className={"card-availability"}>
