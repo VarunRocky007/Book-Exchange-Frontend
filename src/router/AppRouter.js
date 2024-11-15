@@ -6,6 +6,7 @@ import CreateBookEntryPage from "../modules/create-book-entry/pages/CreateBookEn
 import ProfilePage from "../modules/profile/pages/ProfilePage";
 import ChangePasswordPage from "../modules/profile/pages/ChangePasswordPage";
 import BookDetailsPage from "../modules/detail-book-view/pages/BookDetailsPage";
+import SearchPage from "../modules/search/pages/SearchPage";
 
 const AppRouter = () => {
   return (
@@ -17,6 +18,7 @@ const AppRouter = () => {
           <Route path="/profile" element={<ProfilePage />} />
           <Route path="/change-password" element={<ChangePasswordPage />} />
           <Route path="/book/:id" element={<BookDetailsPage />} />
+          <Route path="/search" element={<SearchPage />} />
         </Route>
         <Route
           path="/auth/login"

@@ -1,12 +1,64 @@
-.profilePage {
+.search-page {
     height: 100vh;
     background: white;
     font-family: "Roboto", sans-serif;
 }
 
-.items-section {
-    height: 100vh;
-    background: white;
+/* Search bar and filters */
+.search-bar {
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+    max-width: 600px;
+    margin: 20px auto;
+    padding: 20px;
+    background-color: #f9f9f9;
+    border: 1px solid #ddd;
+    border-radius: 10px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+}
+
+.search-bar input[type="text"] {
+    width: 100%;
+    padding: 10px;
+    margin-bottom: 20px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    font-size: 1em;
+}
+
+.search-bar label {
+    margin-left: 8px;
+    font-size: 0.9em;
+    color: #333;
+}
+
+.search-bar input[type="checkbox"] {
+    margin-right: 8px;
+}
+
+.search-bar .filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 10px;
+    align-items: center;
+    margin-bottom: 20px;
+}
+
+.search-bar button {
+    align-self: center;
+    padding: 10px 20px;
+    background-color: #007bff;
+    color: white;
+    border: none;
+    border-radius: 5px;
+    font-size: 1em;
+    cursor: pointer;
+    transition: background-color 0.3s;
+}
+
+.search-bar button:hover {
+    background-color: #0056b3;
 }
 
 .container {
@@ -76,63 +128,7 @@
     font-size: 1em;
 }
 
-.profileTop {
-    background-color: #f7f9fc;
-    padding: 30px;
-    border-radius: 10px;
-    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
-    max-width: 100%;
-    margin: 0 auto;
-    font-family: Arial, sans-serif;
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
-}
-
-.profileTop h1 {
-    font-size: 2rem;
-    color: #333;
-    margin-bottom: 10px;
-}
-
-.profileTop h2 {
-    font-size: 1.5rem;
-    color: #555;
-    margin-bottom: 5px;
-}
-
-.profileTop p {
-    font-size: 1rem;
-    color: #777;
-    margin-bottom: 20px;
-}
-
-.profileTop button {
-    padding: 10px 20px;
-    font-size: 1rem;
-    color: white;
-    background-color: #007bff;
-    border: none;
-    border-radius: 5px;
-    cursor: pointer;
-    margin-right: 10px;
-    transition: background-color 0.3s ease;
-}
-
-.profileTop button:hover {
-    background-color: #0056b3;
-}
-
-.profileTop button:last-child {
-    background-color: #dc3545;
-}
-
-.profileTop button:last-child:hover {
-    background-color: #c82333;
-}
-
-/* Ensure buttons are left-aligned and spaced apart */
-.button-group {
-    display: flex;
-    gap: 10px;
+.items-section {
+    height: 100vh;
+    background: white;
 }

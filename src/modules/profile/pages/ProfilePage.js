@@ -3,6 +3,7 @@ import {useEffect, useState} from "react";
 import Header from "../../../components/header/Header";
 import TextError from "../../../components/error_text/TextError";
 import Cookie from "js-cookie";
+
 const {useNavigate} = require("react-router-dom");
 
 const ProfilePage = () => {
@@ -29,9 +30,9 @@ const ProfilePage = () => {
                 'Authorization': 'Bearer ' + token
             }
         }).then(() => {
-            Cookie.remove("authToken");
-            Cookie.remove("userId");
-            navigate("/auth/login");
+                Cookie.remove("authToken");
+                Cookie.remove("userId");
+                navigate("/auth/login");
             }
         );
     }
@@ -124,32 +125,36 @@ const ProfilePage = () => {
                     </button>
                 </div>)}
 
-            <h1>Books Listed By You</h1>
-            {bookLoading && (<span>...Loading</span>)}
-            {error !== "" && (<span>{error}</span>)}
-            {items.length === 0 && !bookLoading && (<span>No books listed by you.</span>)}
-            <div className="container">
-                <div className="card-container">
-                    {items.map((item) => (
-                        <div key={item.id} className="card" onClick={(e) => {navigate(`/book/${item._id}`)}}>
-                            <h2 className="card-title">{item.title}</h2>
-                            <p className="card-author">Author: {item.author}</p>
-                            <p className={"card-availability"}>
-                                Status: {item.availabilityStatus}
-                            </p>
-                            <p className="card-genre">Genre: {item.genre}</p>
-                        </div>
-                    ))}
+            <div className="items-section">
+                <h1>Books Listed By You</h1>
+                {bookLoading && (<span>...Loading</span>)}
+                {error !== "" && (<span>{error}</span>)}
+                {items.length === 0 && !bookLoading && (<span>No books listed by you.</span>)}
+                <div className="container">
+                    <div className="card-container">
+                        {items.map((item) => (
+                            <div key={item.id} className="card" onClick={(e) => {
+                                navigate(`/book/${item._id}`)
+                            }}>
+                                <h2 className="card-title">{item.title}</h2>
+                                <p className="card-author">Author: {item.author}</p>
+                                <p className={"card-availability"}>
+                                    Status: {item.availabilityStatus}
+                                </p>
+                                <p className="card-genre">Genre: {item.genre}</p>
+                            </div>
+                        ))}
+                    </div>
+                    {totalPages !== 0 && (<div className="pagination">
+                        <button onClick={handlePreviousPage} disabled={currentPage === 1}>
+                            Previous
+                        </button>
+                        <span>Page {currentPage} of {totalPages}</span>
+                        <button onClick={handleNextPage} disabled={currentPage === totalPages}>
+                            Next
+                        </button>
+                    </div>)}
                 </div>
-                {totalPages !== 0 && (<div className="pagination">
-                    <button onClick={handlePreviousPage} disabled={currentPage === 1}>
-                        Previous
-                    </button>
-                    <span>Page {currentPage} of {totalPages}</span>
-                    <button onClick={handleNextPage} disabled={currentPage === totalPages}>
-                        Next
-                    </button>
-                </div>)}
             </div>
         </div>
     );
