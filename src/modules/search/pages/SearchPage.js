@@ -26,7 +26,12 @@ const SearchPage = () => {
     }
 
     const handleSearchChange = (e) => {
+        setError("");
         const searchTerm = search;
+        if(searchTerm === "") {
+            setError("Please enter a search term.");
+            return;
+        }
         let searchQuery = "";
         if (!searchByGenre && !searchByLocation && !searchByAuthor && !searchByTitle) {
             searchQuery = `&q=${searchTerm}`;

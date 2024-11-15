@@ -4,62 +4,95 @@
     font-family: "Roboto", sans-serif;
 }
 
-/* Search bar and filters */
+/* General styling for the search bar container */
 .search-bar {
-    display: flex;
-    flex-direction: column;
-    align-items: flex-start;
     max-width: 600px;
     margin: 20px auto;
     padding: 20px;
-    background-color: #f9f9f9;
+    background-color: #ffffff;
     border: 1px solid #ddd;
     border-radius: 10px;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    display: flex;
+    flex-direction: column;
+    gap: 20px;
 }
 
+/* Styling for the search term input */
 .search-bar input[type="text"] {
-    width: 100%;
-    padding: 10px;
-    margin-bottom: 20px;
+    width: 95%;
+    padding: 12px;
     border: 1px solid #ccc;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1rem;
+    outline: none;
+    transition: border-color 0.3s ease;
 }
 
-.search-bar label {
-    margin-left: 8px;
-    font-size: 0.9em;
+.search-bar input[type="text"]:focus {
+    border-color: #007bff;
+}
+
+/* Filter group container */
+.filter-group {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 15px;
+}
+
+/* Individual filter checkbox and label container */
+.filter-group div {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 0.95rem;
     color: #333;
 }
 
-.search-bar input[type="checkbox"] {
-    margin-right: 8px;
+/* Styling for the checkboxes */
+.filter-group input[type="checkbox"] {
+    accent-color: #007bff; /* Modern browsers support this */
+    transform: scale(1.2);
 }
 
-.search-bar .filter-group {
-    display: flex;
-    flex-wrap: wrap;
-    gap: 10px;
-    align-items: center;
-    margin-bottom: 20px;
-}
-
+/* Search button styling */
 .search-bar button {
-    align-self: center;
-    padding: 10px 20px;
+    padding: 12px 20px;
     background-color: #007bff;
-    color: white;
+    color: #fff;
     border: none;
     border-radius: 5px;
-    font-size: 1em;
+    font-size: 1rem;
     cursor: pointer;
-    transition: background-color 0.3s;
+    align-self: center;
+    transition: background-color 0.3s ease, transform 0.2s ease;
 }
 
 .search-bar button:hover {
     background-color: #0056b3;
+    transform: scale(1.05);
 }
+
+.search-bar button:active {
+    transform: scale(1);
+}
+
+/* Responsive adjustments */
+@media (max-width: 768px) {
+    .search-bar {
+        padding: 15px;
+    }
+
+    .filter-group {
+        flex-direction: column;
+        gap: 10px;
+    }
+
+    .search-bar button {
+        width: 100%;
+    }
+}
+
 
 .container {
     padding: 20px;
