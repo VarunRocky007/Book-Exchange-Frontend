@@ -1,5 +1,7 @@
 # Book Exchange Frontend
 
+This is the frontend application of Book Exchange platform.
+
 Follow these steps to run this app
 
 Download Nodejs 20.11.0
